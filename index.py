@@ -33,7 +33,7 @@ def display_page(pathname):
         return lstm.layout
     if pathname == '/exp':
         return exp.layout
-    if pathname == '/transformer':
+    if pathname == '/fusion':
         return transformer.layout
     if pathname == '/prophet':
         return prophet.layout

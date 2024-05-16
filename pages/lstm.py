@@ -24,8 +24,8 @@ layout = dbc.Container([
         html.Center(html.H1("LSTM / Long Short-Term Memory")),
         html.Br(),
         html.Hr(),
-        html.H1(children='HHC Нүүрсний үнийн таамаглал', style={'textAlign':'Left'}),
-        html.H3(children='Төрөл'),
+        html.H3(children='HHC Нүүрсний үнийн таамаглал', style={'textAlign':'Left'}),
+        html.H5(children='Төрөл'),
         dcc.Dropdown(column, 'Jingtang Australia EXW', id='dropdown-selection'),
         dcc.Graph(id='graph-content-lstm')
     ], style={'margin-top': '25px'})
@@ -59,7 +59,7 @@ def update_graph(value):
         y=pred[value],
         mode='lines',
         name='Таамаглал',
-        line=dict(color='red')
+        line=dict(color='green')
     ))
 
     fig.update_layout(
