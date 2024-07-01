@@ -56,7 +56,7 @@ layout = dbc.Container([
         html.Div(id='dif-output'),
         html.Br(),
         html.Hr(),
-        dcc.Dropdown(column, 'Jinquan Mongolia 5# Washed Coking', id='dropdown-selection'),
+        dcc.Dropdown(column, 'Ganqimaodu Mongolia 3# Washed Coking', id='dropdown-selection'),
         dcc.Graph(id='graph-content-lstm_new')
     ], style={'margin-top': '25px'})
 ])
