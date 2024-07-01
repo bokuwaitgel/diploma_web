@@ -8,12 +8,15 @@ def Navbar():
     layout = html.Div([
         dbc.NavbarSimple(
             children=[
-                dbc.NavItem(dbc.NavLink("SARIMA", href="/sarima")),
-                dbc.NavItem(dbc.NavLink("LSTM", href="/lstm")),
-                dbc.NavItem(dbc.NavLink("Exponential Smoothing", href="/exp")),
-                dbc.NavItem(dbc.NavLink("Fusion", href="/fusion")),
+                #drop down menu
+                # dbc.NavItem(dbc.NavLink("SARIMA", href="/sarima")),
+                # dbc.NavItem(dbc.NavLink("LSTM", href="/lstm")),
+                # dbc.NavItem(dbc.NavLink("Exponential Smoothing", href="/exp")),
+                # dbc.NavItem(dbc.NavLink("Fusion", href="/fusion")),
+                dbc.NavItem(dbc.NavLink("Exponential Smoothing", href="/exp_new")),
+                dbc.NavItem(dbc.NavLink("LSTM", href="/lstm_new")),
             ] ,
-            brand="Multi-Model time series forecasting",
+            brand="Time series forecasting",
             brand_href="/",
             color="dark",
             dark=True,

@@ -7,46 +7,53 @@ import pandas as pd
 from dash.dependencies import Input, Output
 
 #local data
-from data import lstm
+from data import exp_new
 
 # get data
-df_main, df_pred = lstm.get_data('0')
+df_main, df_pred = exp_new.get_data('0')
 
 #get columns
-column = list(df_main.columns)
+column =  [
+           'Jinquan Mongolia 5# Washed Coking', 
+           'Baotou Washed Primary Coking',
+           'Wuhai Washed 1/3 Coking',
+           'Ganqimaodu Thermal 6000',
+           'Ordos Grade III Met. Coke',
+           ]
 
 #remove Date from columns
-column.remove('Date')
+# column.remove('Date')
 
-# Define the final page layout
+# Define the page layout
 layout = dbc.Container([
     dbc.Row([
-        html.Center(html.H1("LSTM / Long Short-Term Memory")),
+        html.Center(html.H1("Exponential Smoothing")),
         html.Br(),
         html.Hr(),
         html.H3(children='HCC Нүүрсний үнийн таамаглал', style={'textAlign':'Left'}),
         html.H5(children='Төрөл'),
-        dcc.Dropdown(column, 'Jingtang Australia EXW', id='dropdown-selection'),
-        dcc.Graph(id='graph-content-lstm')
+        dcc.Dropdown(column, 'Jinquan Mongolia 5# Washed Coking', id='dropdown-selection'),       
+        html.Br(),
+        html.Hr(),
+        dcc.Graph(id='graph-content-exp_new')
+
     ], style={'margin-top': '25px'})
 ])
 
 @callback(
-    Output('graph-content-lstm', 'figure'),
+    Output('graph-content-exp_new', 'figure'),
     Input('dropdown-selection', 'value')
 )
-
 def update_graph(value):
     #get column index by value
     index = column.index(value)
-    
-    test = df_main.iloc[-100:]
-    pred = lstm.get_pred(str(index))
+    test = df_main.iloc[-60:]
+    pred = exp_new.get_pred(str(index))
     fig = go.Figure()
     
     # Add training data line plot
     fig.add_trace(go.Scatter(
-        x=test['Date'],
+        x=test['date'],
         y=test[value],
         mode='lines',
         name='Бодит өгөгдөл',
@@ -55,7 +62,7 @@ def update_graph(value):
 
     # Add predictions line plot
     fig.add_trace(go.Scatter(
-        x=pred['Date'],
+        x=pred['date'],
         y=pred[value],
         mode='lines',
         name='Таамаглал',

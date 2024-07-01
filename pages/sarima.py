@@ -24,7 +24,7 @@ layout = dbc.Container([
         html.Center(html.H1("SARIMA / Seasonal Auto-Regressive Integrated Moving Average")),
         html.Br(),
         html.Hr(),
-        html.H3(children='HHC Нүүрсний үнийн таамаглал', style={'textAlign':'Left'}),
+        html.H3(children='HCC Нүүрсний үнийн таамаглал', style={'textAlign':'Left'}),
         html.H5(children='Төрөл'),
         dcc.Dropdown(column, 'Jingtang Australia EXW', id='dropdown-selection'),
         dcc.Graph(id='graph-content')

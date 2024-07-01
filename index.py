@@ -6,7 +6,7 @@ from dash.dependencies import Input, Output
 from app import app
 
 # Connect to your app pages
-from pages import home, sarima, lstm, exp, transformer, prophet
+from pages import home, sarima, lstm, exp, transformer, prophet, exp_new, lstm_new
 
 # Connect the navbar to the index
 from components import navbar
@@ -24,6 +24,7 @@ app.layout = html.Div([
 # Create the callback to handle mutlipage inputs
 @app.callback(Output('page-content', 'children'),
               [Input('url', 'pathname')])
+
 def display_page(pathname):
     if pathname == '/':
         return home.layout
@@ -37,11 +38,15 @@ def display_page(pathname):
         return transformer.layout
     if pathname == '/prophet':
         return prophet.layout
+    if pathname == '/exp_new':
+        return exp_new.layout
+    if pathname == '/lstm_new':
+        return lstm_new.layout
     else: # if redirected to unknown link
         return "404 Page Error! Please choose a link"
 
 # Run the app on localhost:8050
 if __name__ == '__main__':
-    app.run_server(host="0.0.0.0")
+    # app.run_server(host="0.0.0.0")
     #debug
-    # app.run_server(debug=True) 
+    app.run_server(debug=True) 

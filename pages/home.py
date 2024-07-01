@@ -16,7 +16,7 @@ layout = dbc.Container([
         html.Img(src='/assets/image.png', style={'height':'100%', 'width':'100%'})]),
         html.Br(),
         html.Hr(),
-        html.H3("Горимын бүтэц"),
-        html.Img(src='/assets/model.png', style={'height':'100%', 'width':'100%'}),
+        # html.H3("Горимын бүтэц"),
+        # html.Img(src='/assets/model.png', style={'height':'100%', 'width':'100%'}),
     ])
 ])
