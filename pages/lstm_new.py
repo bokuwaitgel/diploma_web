@@ -11,10 +11,10 @@ from data import lstm_new
 
 # get data
 df_main = lstm_new.get_main()
-print(df_main)
 
 #get columns
 column =  [
+           'Ganqimaodu Mongolia 3# Washed Coking', 
            'Jinquan Mongolia 5# Washed Coking', 
            'Baotou Washed Primary Coking',
            'Wuhai Washed 1/3 Coking',
@@ -23,21 +23,20 @@ column =  [
            ]
 
 res = [
-    1627.0192,
-    2062.4287,
-    1699.2125,
-    689.65436,
-    1440.3883
+    1471,
+    1627,
+    2062,
+    1699,
+    689,
+    1440
 ]
-#get df main last row as a list
-last_row = df_main.iloc[-1].tolist()
-
 before_res = [
-    1565.0, 
-    1951.5, 
-    1673.525, 
-    680.0, 
-    1329.19
+    1480,
+    1565, 
+    1951, 
+    1673, 
+    680, 
+    1329
 ]
 
 
